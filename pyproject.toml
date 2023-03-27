@@ -9,6 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = ">=3.10, <3.12"
 pyside6 = "^6.4.3"
+pycryptodomex = "^3.17"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
@@ -46,4 +47,11 @@ good-names-rgxs = "[a-z]"
     sequence = [
         { cwd = "src", script = "build_ui:build_ui('02-QC-project')" },
         { cwd = "src", cmd = "python -m 02-QC-project" }
+    ]
+
+    [tool.poe.tasks.P03]
+    help = "Project 03: Netease cloud music decoder"
+    sequence = [
+        { cwd = "src", script = "build_ui:build_ui('03-ncmdecoder')" },
+        { cwd = "src", cmd = "python -m 03-ncmdecoder" }
     ]
