@@ -31,3 +31,9 @@ suggestion-mode = true
 
 [tool.pylint.basic]
 good-names-rgxs = "[a-z]"
+
+[tool.poe.tasks]
+
+    [tool.poe.tasks.P01]
+    help = "Project 01: Hello World"
+    cmd = "python -m src.01-hello-world"
