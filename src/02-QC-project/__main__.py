@@ -1,12 +1,8 @@
-# This Python file uses the following encoding: utf-8
 import sys
 
+from PySide6.QtCore import Signal, Slot
 from PySide6.QtWidgets import QApplication, QMainWindow
 
-# Important:
-# You need to run the following command to generate the ui_form.py file
-#     pyside6-uic form.ui -o ui_form.py, or
-#     pyside2-uic form.ui -o ui_form.py
 from .ui_form import Ui_Main
 
 
@@ -15,6 +11,25 @@ class Main(QMainWindow):
         super().__init__(parent)
         self.ui = Ui_Main()
         self.ui.setupUi(self)
+        self.counter = 0
+
+    def repaint(self):
+        self.ui.label.setText(f'{self.counter}')
+
+    @Slot()
+    def on_pushButton_clicked(self):
+        self.counter += 1
+        self.repaint()
+
+    @Slot()
+    def on_pushButton2_clicked(self):
+        self.counter = 0
+        self.repaint()
+
+    @Slot()
+    def on_pushButton3_clicked(self):
+        self.counter -= 1
+        self.repaint()
 
 
 if __name__ == "__main__":
