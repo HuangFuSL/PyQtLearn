@@ -36,4 +36,14 @@ good-names-rgxs = "[a-z]"
 
     [tool.poe.tasks.P01]
     help = "Project 01: Hello World"
-    cmd = "python -m src.01-hello-world"
+    sequence = [
+        { cwd = "src", script = "build_ui:build_ui('01-hello-world')" },
+        { cwd = "src", cmd = "python -m 01-hello-world" }
+    ]
+
+    [tool.poe.tasks.P02]
+    help = "Project 02: Use Qt Creator to create a GUI application"
+    sequence = [
+        { cwd = "src", script = "build_ui:build_ui('02-QC-project')" },
+        { cwd = "src", cmd = "python -m 02-QC-project" }
+    ]

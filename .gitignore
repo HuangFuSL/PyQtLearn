@@ -130,3 +130,6 @@ dmypy.json
 
 # Poetry
 poetry.lock
+
+# Qt ui files
+ui_*.py
