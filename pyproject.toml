@@ -7,7 +7,8 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.10, <3.12"
+pyside6 = "^6.4.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
@@ -30,21 +31,3 @@ suggestion-mode = true
 
 [tool.pylint.basic]
 good-names-rgxs = "[a-z]"
-
-[tool.poe.tasks]
-
-    [tool.poe.tasks.launch]
-    help = "Launch the project"
-    cmd = "python -m src"
-
-    [tool.poe.tasks.test]
-    help = "Run the tests"
-    cmd = "pytest"
-
-    [tool.poe.tasks.debug]
-    help = "Debug the project"
-    cmd = "python -m pdb -m src"
-
-    [tool.poe.tasks.debug-test]
-    help = "Run the tests in debug mode"
-    cmd = "python -m pdb -m pytest"
